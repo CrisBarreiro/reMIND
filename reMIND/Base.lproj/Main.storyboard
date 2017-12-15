@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,29 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wJ7-yV-4f8" id="hke-ne-puc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este es un texto de prueba para ver dos líneas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjY-Gu-GrZ">
+                                            <rect key="frame" x="86" y="15" width="293" height="49.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_no_icon" translatesAutoresizingMaskIntoConstraints="NO" id="DIo-aM-hLc">
+                                            <rect key="frame" x="16" y="14" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="15M-tT-La0"/>
+                                                <constraint firstAttribute="height" constant="50" id="LQ9-Wo-pBS"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AjY-Gu-GrZ" firstAttribute="trailing" secondItem="hke-ne-puc" secondAttribute="trailingMargin" constant="20" id="5rR-0h-sSz"/>
+                                        <constraint firstItem="DIo-aM-hLc" firstAttribute="leading" secondItem="hke-ne-puc" secondAttribute="leadingMargin" id="CcA-58-Wx6"/>
+                                        <constraint firstItem="AjY-Gu-GrZ" firstAttribute="leading" secondItem="DIo-aM-hLc" secondAttribute="trailing" constant="20" id="CcX-PH-3q8"/>
+                                        <constraint firstAttribute="bottom" secondItem="AjY-Gu-GrZ" secondAttribute="bottom" constant="15" id="TyX-Zc-7hB"/>
+                                        <constraint firstItem="AjY-Gu-GrZ" firstAttribute="top" secondItem="hke-ne-puc" secondAttribute="top" constant="15" id="aCf-iy-MnI"/>
+                                        <constraint firstItem="DIo-aM-hLc" firstAttribute="centerY" secondItem="hke-ne-puc" secondAttribute="centerY" id="uxk-K6-wYP"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -61,4 +85,7 @@
             <point key="canvasLocation" x="-561" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_no_icon" width="50" height="50"/>
+    </resources>
 </document>
