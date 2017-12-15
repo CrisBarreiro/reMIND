@@ -52,7 +52,7 @@
                                 <connections>
                                     <outlet property="imgTask" destination="DIo-aM-hLc" id="mzg-Pt-omF"/>
                                     <outlet property="lblTask" destination="AjY-Gu-GrZ" id="J7j-08-B9w"/>
-                                    <segue destination="K4e-rk-A1g" kind="show" id="bd2-PT-bi0"/>
+                                    <segue destination="K4e-rk-A1g" kind="show" identifier="detailSegue" id="bd2-PT-bi0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
