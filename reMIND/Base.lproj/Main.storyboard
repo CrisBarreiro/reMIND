@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="wJ7-yV-4f8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" rowHeight="80" id="wJ7-yV-4f8" customClass="TaskCell" customModule="reMIND" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wJ7-yV-4f8" id="hke-ne-puc">
@@ -50,6 +50,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="imgTask" destination="DIo-aM-hLc" id="mzg-Pt-omF"/>
+                                    <outlet property="lblTask" destination="AjY-Gu-GrZ" id="J7j-08-B9w"/>
                                     <segue destination="K4e-rk-A1g" kind="show" id="bd2-PT-bi0"/>
                                 </connections>
                             </tableViewCell>
@@ -59,16 +61,23 @@
                             <outlet property="delegate" destination="n8g-0m-Mpg" id="dfE-a1-XmQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="reMIND" id="d0j-6h-2tI"/>
+                    <navigationItem key="navigationItem" title="reMIND" id="d0j-6h-2tI">
+                        <barButtonItem key="rightBarButtonItem" image="icon-add" id="jcJ-HO-gIv">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addTask:" destination="n8g-0m-Mpg" id="Hcl-IL-CvB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8s5-Sd-RYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="260" y="132.68365817091455"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Icons View Controller-->
         <scene sceneID="xpw-oZ-zrQ">
             <objects>
-                <collectionViewController id="K4e-rk-A1g" sceneMemberID="viewController">
+                <collectionViewController id="K4e-rk-A1g" customClass="IconsViewController" customModule="reMIND" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1Bq-If-doy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +89,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SYl-G0-Moq">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellIdentifier" id="SYl-G0-Moq" customClass="IconCell" customModule="reMIND" customModuleProvider="target">
                                 <rect key="frame" x="10" y="90" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -109,9 +118,13 @@
                                     <constraint firstItem="Rrg-l1-d10" firstAttribute="leading" secondItem="SYl-G0-Moq" secondAttribute="leading" constant="10" id="OCb-kn-lT0"/>
                                     <constraint firstItem="Gvf-rv-BAx" firstAttribute="top" secondItem="SYl-G0-Moq" secondAttribute="top" constant="10" id="VZc-3k-yzi"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="icon" destination="Gvf-rv-BAx" id="0AD-CH-uKG"/>
+                                    <outlet property="title" destination="Rrg-l1-d10" id="qou-aI-vbp"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5KC-ky-AXS">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderView" id="5KC-ky-AXS" customClass="HeaderView" customModule="reMIND" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
@@ -129,6 +142,9 @@
                                 <constraint firstItem="pxz-Tq-ptN" firstAttribute="top" secondItem="5KC-ky-AXS" secondAttribute="top" constant="15" id="fbM-Vy-4Jz"/>
                                 <constraint firstAttribute="bottom" secondItem="pxz-Tq-ptN" secondAttribute="bottom" constant="15" id="p7w-wm-qTM"/>
                             </constraints>
+                            <connections>
+                                <outlet property="taskName" destination="pxz-Tq-ptN" id="6vJ-93-fQS"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="K4e-rk-A1g" id="y4M-bl-4aA"/>
@@ -164,6 +180,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-add" width="22" height="22"/>
         <image name="img_no_icon" width="50" height="50"/>
     </resources>
 </document>
